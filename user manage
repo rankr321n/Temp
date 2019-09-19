@@ -1,0 +1,52 @@
+<app-header></app-header>
+<link
+  rel="stylesheet"
+  href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+/>
+
+<section  class="our-webcoderskull padding-lg">
+  <div  class="container">
+    <div class="row heading heading-icon">
+      <h2>Manage Users</h2>
+    </div>
+    <ul  class="row">
+      <li *ngFor="let item of users" class="col-12 col-md-6 col-lg-3">
+          
+        <div class="cnt-block equal-hight" style="height: 349px;">
+            <p *ngIf="item.isVerified" class="label label-success">verified {{item.isVerified}}</p>
+            <p *ngIf="!item.isVerified" class="label label-warning">verified {{item.isVerified}}</p>
+          <figure>
+            <img
+              src="http://www.webcoderskull.com/img/team4.png"
+              class="img-responsive"
+              alt=""
+            />
+          </figure>
+          
+          <h3><a>{{item.email}}</a></h3>
+          <button *ngIf="item.isVerified" class="btn btn-danger "(click)="blockUser(item.email)">Block</button>
+          <button  *ngIf="!item.isVerified" class="btn btn-success " (click)="unblockUser(item.email)">UnBlock</button>
+
+          <p>Registered on {{item.createdAt|date:long}}</p>
+          
+          
+          <ul class="follow-us clearfix">
+            <!-- <li>
+              <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+            </li>
+            <li>      
+            <a><i class="fa fa-linkedin" aria-hidden="true"></i></a>           </li>
+                           
+               -->
+          </ul>
+          
+        </div>
+      </li>
+      
+    </ul>
+  </div>
+</section>
+<app-footer></app-footer>
